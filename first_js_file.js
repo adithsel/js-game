@@ -24,9 +24,9 @@ document.addEventListener('keydown', event => {
                 clickpower += 1
                 money -= 100
                 firstupgradebought = true
-                textEl.innerHTML += '<br>you bought the first upgrade'
+                alert('you bought the first upgrade')
             } else {
-                textEl.innerHTML += '<br>cannot buy the first upgrade'
+                alert('cannot buy the first upgrade')
             }
             mode = 'clicking'
             updateDisplay()
@@ -35,9 +35,9 @@ document.addEventListener('keydown', event => {
                 clickpower += 3.5
                 money -= 500
                 betterbuttonbought = true
-                textEl.innerHTML += '<br>you bought the better button'
+                alert('you bought the better button')
             } else {
-                textEl.innerHTML += '<br>cannot buy the better button'
+                alert('cannot buy the better button')
             }
             mode = 'clicking'
             updateDisplay()
