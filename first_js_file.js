@@ -75,9 +75,9 @@ document.addEventListener('keydown', event => {
             mode = 'clicking'
             updateDisplay()
         } else if (event.key === '4' && !event.repeat) {
-            if (money >= 5000 && !ultimatebuttonbought) {
-                clickpower += 12
-                money -= 5000
+            if (money >= 6500 && !ultimatebuttonbought) {
+                clickpower += 20
+                money -= 6500
                 ultimatebuttonbought = true
                 alert('you bought the ultimate button')
             } else {
@@ -95,7 +95,7 @@ updateDisplay()
 function updateDisplay() {
     textEl.innerHTML = `<br>type b to buy upgrades and press Enter for money:<br>you have $${money}`
     textEl.innerHTML += '<br>press s to save or l to load'
-    if (money >= 75000 && firstupgradebought && betterbuttonbought && thirdupgradebought && ultimatebuttonbought){
+    if (money >= 60000 && firstupgradebought && betterbuttonbought && thirdupgradebought && ultimatebuttonbought){
         textEl.innerHTML += '<br>press r to rebirth and multiply clickpower by 1.5 and reset money and upgrades'
     }
 }
@@ -104,7 +104,7 @@ function buy() {
     textEl.innerHTML += '<br>1 | first upgrade | $100 | +1 clickpower'
     textEl.innerHTML += '<br>2 | better button | $500 | +3.5 clickpower'
     textEl.innerHTML += '<br>3 | even better button | $1250 | +5.5 clickpower'
-    textEl.innerHTML += '<br>4 | ultimate button | $5000 | +12 clickpower'
+    textEl.innerHTML += '<br>4 | ultimate button | $6500 | +20 clickpower'
     textEl.innerHTML += '<br>what will you buy (press associated number): '
 }
 
