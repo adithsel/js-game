@@ -34,7 +34,7 @@ document.addEventListener('keydown', event => {
             betterbuttonbought = false
             thirdupgradebought = false
             ultimatebuttonbought = false
-            textEl.innerHTML += '<br>you rebirthed and multiplied your clickpower by 1.2'
+            textEl.innerHTML += '<br>you rebirthed and multiplied your clickpower by 1.5'
             updateDisplay()
         }
 
