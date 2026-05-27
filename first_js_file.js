@@ -8,7 +8,6 @@ let mode = 'clicking'
 
 
 
-
 console.log('ur in the console i see')
 console.log('pls dont cheat by changing variables')
 
@@ -23,6 +22,10 @@ document.addEventListener('keydown', event => {
             updateDisplay()
         } else if (event.key === 'b' && !event.repeat) {
             buy()
+        } else if (event.key === 's' && !event.repeat) {
+            save()
+        } else if (event.key === 'l' && !event.repeat) {
+            load()
         } else if (event.key === 'r' && money >= 75000 && firstupgradebought && betterbuttonbought && thirdupgradebought && ultimatebuttonbought && !event.repeat) {
             money = 0
             clickpower = 1
@@ -91,6 +94,7 @@ updateDisplay()
 
 function updateDisplay() {
     textEl.innerHTML = `<br>type b to buy upgrades and press Enter for money:<br>you have $${money}`
+    textEl.innerHTML += '<br>press s to save or l to load'
     if (money >= 75000 && firstupgradebought && betterbuttonbought && thirdupgradebought && ultimatebuttonbought){
         textEl.innerHTML += '<br>press r to rebirth and multiply clickpower by 1.5 and reset money and upgrades'
     }
@@ -102,4 +106,45 @@ function buy() {
     textEl.innerHTML += '<br>3 | even better button | $1250 | +5.5 clickpower'
     textEl.innerHTML += '<br>4 | ultimate button | $5000 | +12 clickpower'
     textEl.innerHTML += '<br>what will you buy (press associated number): '
+}
+
+
+
+
+
+
+function save(){
+    const savedata = {
+        money: money,
+        clickpower: clickpower,
+        firstupgradebought: firstupgradebought,
+        betterbuttonbought: betterbuttonbought,
+        thirdupgradebought: thirdupgradebought,
+        ultimatebuttonbought: ultimatebuttonbought
+    }
+    localStorage.setItem('savedata', JSON.stringify(savedata))
+    textEl.innerHTML += '<br>game saved'
+    setTimeout(() => {
+        updateDisplay()
+    }, 2000)
+}
+
+
+
+
+
+function load(){
+    const savedata = JSON.parse(localStorage.getItem('savedata'))
+    if (savedata) {
+        money = savedata.money
+        clickpower = savedata.clickpower
+        firstupgradebought = savedata.firstupgradebought
+        betterbuttonbought = savedata.betterbuttonbought
+        thirdupgradebought = savedata.thirdupgradebought
+        ultimatebuttonbought = savedata.ultimatebuttonbought
+        textEl.innerHTML += '<br>game loaded'
+        setTimeout(() => {
+            updateDisplay()
+        }, 2000)
+    }
 }
