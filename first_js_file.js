@@ -26,7 +26,7 @@ document.addEventListener('keydown', event => {
             save()
         } else if (event.key === 'l' && !event.repeat) {
             load()
-        } else if (event.key === 'r' && money >= 75000 && firstupgradebought && betterbuttonbought && thirdupgradebought && ultimatebuttonbought && !event.repeat) {
+        } else if (event.key === 'r' && money >= 60000 && firstupgradebought && betterbuttonbought && thirdupgradebought && ultimatebuttonbought && !event.repeat) {
             money = 0
             clickpower = 1
             clickpower *= 1.5
