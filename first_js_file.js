@@ -97,9 +97,9 @@ function updateDisplay() {
 }
 function buy() {
     mode = 'buying'
-    textEl.innerHTML += '<br>1 |    first upgrade   | $100  | +1 clickpower'
-    textEl.innerHTML += '<br>2 |    better button   | $500  | +3.5 clickpower'
+    textEl.innerHTML += '<br>1 | first upgrade | $100 | +1 clickpower'
+    textEl.innerHTML += '<br>2 | better button | $500 | +3.5 clickpower'
     textEl.innerHTML += '<br>3 | even better button | $1250 | +5.5 clickpower'
-    textEl.innerHTML += '<br>4 |   ultimate button  | $5000 | +12 clickpower'
+    textEl.innerHTML += '<br>4 | ultimate button | $5000 | +12 clickpower'
     textEl.innerHTML += '<br>what will you buy (press associated number): '
 }
