@@ -1,0 +1,15 @@
+{
+  "name": "js-game",
+  "version": "1.0.0",
+  "description": "hi",
+  "keywords": [
+    "pp"
+  ],
+  "license": "ISC",
+  "author": "adith",
+  "type": "commonjs",
+  "main": "first_js_file.js",
+  "scripts": {
+    "ppbutt": "node first_js_file.js"
+  }
+}
