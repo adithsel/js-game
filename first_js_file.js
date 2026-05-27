@@ -69,8 +69,8 @@ function updateDisplay() {
 
 function buy() {
     mode = 'buying'
-    textEl.innerHTML += '<br>1 | first upgrade | $100'
-    textEl.innerHTML += '<br>2 | better button | $500'
+    textEl.innerHTML += '<br>1 | first upgrade  | $100'
+    textEl.innerHTML += '<br>2 | better button  | $500'
     textEl.innerHTML += '<br>3 | third upgrade | $1250'
     textEl.innerHTML += '<br>what will you buy (press associated number): '
 }
