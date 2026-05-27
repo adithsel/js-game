@@ -8,6 +8,10 @@ let mode = 'clicking'
 
 
 
+console.log('ur in the console i see')
+console.log('pls dont cheat by changing variables')
+
+
 
 const textEl = document.getElementById('text')
 
