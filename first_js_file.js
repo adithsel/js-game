@@ -1,5 +1,6 @@
 let money = 0
 let clickpower = 1
+let clickmult = 1
 let firstupgradebought = false
 let betterbuttonbought = false
 let thirdupgradebought = false
@@ -19,7 +20,7 @@ const textEl = document.getElementById('text')
 document.addEventListener('keydown', event => {
     if (mode === 'clicking') {
         if (event.key === 'Enter' && !event.repeat) {
-            money += clickpower
+            money += (clickpower * clickmult)
             updateDisplay()
         } else if (event.key === 'b' && !event.repeat) {
             buy()
@@ -30,7 +31,7 @@ document.addEventListener('keydown', event => {
         } else if (event.key === 'r' && money >= 45000 && firstupgradebought && betterbuttonbought && thirdupgradebought && ultimatebuttonbought && multiplyingbuttonbought && !event.repeat) {
             money = 0
             clickpower = 1
-            clickpower *= 1.5
+            clickmult = 1.5
             firstupgradebought = false
             betterbuttonbought = false
             thirdupgradebought = false
@@ -89,7 +90,7 @@ document.addEventListener('keydown', event => {
             updateDisplay()
         } else if (event.key === '5' && !event.repeat) {
             if (money >= 17500 && !multiplyingbuttonbought) {
-                clickpower *= 1.75
+                clickmult += .75
                 money -= 17500
                 multiplyingbuttonbought = true
                 alert('you bought the multiplying button')
@@ -123,7 +124,7 @@ function buy() {
     textEl.innerHTML += '<br>2 | better button | $500 | +3.5 clickpower'
     textEl.innerHTML += '<br>3 | even better button | $1250 | +5.5 clickpower'
     textEl.innerHTML += '<br>4 | ultimate button | $6500 | +20 clickpower'
-    textEl.innerHTML += '<br>5 | multiplying button | $17500 | multiplies clickpower by 1.75'
+    textEl.innerHTML += '<br>5 | multiplying button | $17500 | click multiplier +0.75'
     textEl.innerHTML += '<br>what will you buy (press associated number): '
 }
 
@@ -136,6 +137,7 @@ function save(){
     const savedata = {
         money: money,
         clickpower: clickpower,
+        clickmult: clickmult,
         firstupgradebought: firstupgradebought,
         betterbuttonbought: betterbuttonbought,
         thirdupgradebought: thirdupgradebought,
@@ -158,6 +160,7 @@ function load(){
     if (savedata) {
         money = savedata.money
         clickpower = savedata.clickpower
+        clickmult = savedata.clickmult
         firstupgradebought = savedata.firstupgradebought
         betterbuttonbought = savedata.betterbuttonbought
         thirdupgradebought = savedata.thirdupgradebought
