@@ -26,7 +26,7 @@ document.addEventListener('keydown', event => {
             save()
         } else if (event.key === 'l' && !event.repeat) {
             load()
-        } else if (event.key === 'r' && money >= 60000 && firstupgradebought && betterbuttonbought && thirdupgradebought && ultimatebuttonbought && !event.repeat) {
+        } else if (event.key === 'r' && money >= 30000 && firstupgradebought && betterbuttonbought && thirdupgradebought && ultimatebuttonbought && !event.repeat) {
             money = 0
             clickpower = 1
             clickpower *= 1.5
@@ -95,7 +95,7 @@ updateDisplay()
 function updateDisplay() {
     textEl.innerHTML = `<br>type b to buy upgrades and press Enter for money:<br>you have $${money}`
     textEl.innerHTML += '<br>press s to save or l to load'
-    if (money >= 60000 && firstupgradebought && betterbuttonbought && thirdupgradebought && ultimatebuttonbought){
+    if (money >= 30000 && firstupgradebought && betterbuttonbought && thirdupgradebought && ultimatebuttonbought){
         textEl.innerHTML += '<br>press r to rebirth and multiply clickpower by 1.5 and reset money and upgrades'
     }
 }
