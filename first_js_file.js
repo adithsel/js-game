@@ -4,6 +4,7 @@ let firstupgradebought = false
 let betterbuttonbought = false
 let thirdupgradebought = false
 let ultimatebuttonbought = false
+let multiplyingbuttonbought = false
 let mode = 'clicking'
 
 
@@ -26,7 +27,7 @@ document.addEventListener('keydown', event => {
             save()
         } else if (event.key === 'l' && !event.repeat) {
             load()
-        } else if (event.key === 'r' && money >= 30000 && firstupgradebought && betterbuttonbought && thirdupgradebought && ultimatebuttonbought && !event.repeat) {
+        } else if (event.key === 'r' && money >= 45000 && firstupgradebought && betterbuttonbought && thirdupgradebought && ultimatebuttonbought && multiplyingbuttonbought && !event.repeat) {
             money = 0
             clickpower = 1
             clickpower *= 1.5
@@ -34,6 +35,7 @@ document.addEventListener('keydown', event => {
             betterbuttonbought = false
             thirdupgradebought = false
             ultimatebuttonbought = false
+            multiplyingbuttonbought = false
             textEl.innerHTML += '<br>you rebirthed and multiplied your clickpower by 1.5'
             updateDisplay()
         }
@@ -83,10 +85,26 @@ document.addEventListener('keydown', event => {
             } else {
                 alert('unable to purchase the ultimate button')
             }
-        }   mode = 'clicking'
+            mode = 'clicking'
             updateDisplay()
+        } else if (event.key === '5' && !event.repeat) {
+            if (money >= 17500 && !multiplyingbuttonbought) {
+                clickpower *= 1.75
+                money -= 17500
+                multiplyingbuttonbought = true
+                alert('you bought the multiplying button')
+            } else {
+                alert('unable to purchase the multiplying button')
+            }
+            mode = 'clicking'
+            updateDisplay()}
+        else{
+            mode = 'clicking'
+            updateDisplay()
+        }
+        }   
     }
-})
+)
 
 updateDisplay()
 
@@ -95,7 +113,7 @@ updateDisplay()
 function updateDisplay() {
     textEl.innerHTML = `<br>type b to buy upgrades and press Enter for money:<br>you have $${money}`
     textEl.innerHTML += '<br>press s to save or l to load'
-    if (money >= 30000 && firstupgradebought && betterbuttonbought && thirdupgradebought && ultimatebuttonbought){
+    if (money >= 45000 && firstupgradebought && betterbuttonbought && thirdupgradebought && ultimatebuttonbought){
         textEl.innerHTML += '<br>press r to rebirth and multiply clickpower by 1.5 and reset money and upgrades'
     }
 }
@@ -105,6 +123,7 @@ function buy() {
     textEl.innerHTML += '<br>2 | better button | $500 | +3.5 clickpower'
     textEl.innerHTML += '<br>3 | even better button | $1250 | +5.5 clickpower'
     textEl.innerHTML += '<br>4 | ultimate button | $6500 | +20 clickpower'
+    textEl.innerHTML += '<br>5 | multiplying button | $17500 | multiplies clickpower by 1.75'
     textEl.innerHTML += '<br>what will you buy (press associated number): '
 }
 
@@ -120,7 +139,8 @@ function save(){
         firstupgradebought: firstupgradebought,
         betterbuttonbought: betterbuttonbought,
         thirdupgradebought: thirdupgradebought,
-        ultimatebuttonbought: ultimatebuttonbought
+        ultimatebuttonbought: ultimatebuttonbought,
+        multiplyingbuttonbought: multiplyingbuttonbought
     }
     localStorage.setItem('savedata', JSON.stringify(savedata))
     textEl.innerHTML += '<br>game saved'
@@ -142,6 +162,7 @@ function load(){
         betterbuttonbought = savedata.betterbuttonbought
         thirdupgradebought = savedata.thirdupgradebought
         ultimatebuttonbought = savedata.ultimatebuttonbought
+        multiplyingbuttonbought = savedata.multiplyingbuttonbought
         textEl.innerHTML += '<br>game loaded'
         setTimeout(() => {
             updateDisplay()
