@@ -46,7 +46,7 @@ document.addEventListener('keydown', event => {
                 firstupgradebought = true
                 alert('you bought the first upgrade')
             } else {
-                alert('cannot buy the first upgrade')
+                alert('unable to purchase the first upgrade')
             }
             mode = 'clicking'
             updateDisplay()
@@ -58,7 +58,7 @@ document.addEventListener('keydown', event => {
                 betterbuttonbought = true
                 alert('you bought the better button')
             } else {
-                alert('cannot buy the better button')
+                alert('unable to purchase the better button')
             }
             mode = 'clicking'
             updateDisplay()
@@ -70,7 +70,7 @@ document.addEventListener('keydown', event => {
                 thirdupgradebought = true
                 alert('you bought the third upgrade')
             } else {
-                alert('cannot buy the third upgrade')
+                alert('unable to purchase the third upgrade')
             }
             mode = 'clicking'
             updateDisplay()
@@ -81,7 +81,7 @@ document.addEventListener('keydown', event => {
                 ultimatebuttonbought = true
                 alert('you bought the ultimate button')
             } else {
-                alert('cannot buy the ultimate button')
+                alert('unable to purchase the ultimate button')
             }
         }   mode = 'clicking'
             updateDisplay()
