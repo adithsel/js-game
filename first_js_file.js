@@ -6,6 +6,10 @@ let betterbuttonbought = false
 let thirdupgradebought = false
 let ultimatebuttonbought = false
 let multiplyingbuttonbought = false
+let firstupgradepower = 1
+let betterbuttonpower = 3.5
+let thirdupgradepower = 5.5
+let ultimatebuttonpower = 20
 let mode = 'clicking'
 
 
@@ -32,6 +36,14 @@ document.addEventListener('keydown', event => {
             money = 0
             clickpower = 1
             clickmult = 1.5
+            firstupgradepower = 1
+            betterbuttonpower = 3.5
+            thirdupgradepower = 5.5
+            ultimatebuttonpower = 20
+            firstupgradepower *= clickmult
+            betterbuttonpower *= clickmult
+            thirdupgradepower *= clickmult
+            ultimatebuttonpower *= clickmult
             firstupgradebought = false
             betterbuttonbought = false
             thirdupgradebought = false
@@ -90,6 +102,10 @@ document.addEventListener('keydown', event => {
             updateDisplay()
         } else if (event.key === '5' && !event.repeat) {
             if (money >= 17500 && !multiplyingbuttonbought) {
+                firstupgradepower *= 1.75
+                betterbuttonpower *= 1.75
+                thirdupgradepower *= 1.75
+                ultimatebuttonpower *= 1.75
                 clickmult += .75
                 money -= 17500
                 multiplyingbuttonbought = true
@@ -120,10 +136,10 @@ function updateDisplay() {
 }
 function buy() {
     mode = 'buying'
-    textEl.innerHTML += '<br>1 | first upgrade | $100 | +1 clickpower'
-    textEl.innerHTML += '<br>2 | better button | $500 | +3.5 clickpower'
-    textEl.innerHTML += '<br>3 | even better button | $1250 | +5.5 clickpower'
-    textEl.innerHTML += '<br>4 | ultimate button | $6500 | +20 clickpower'
+    textEl.innerHTML += `<br>1 | first upgrade | $100 | +$${firstupgradepower} clickpower`
+    textEl.innerHTML += `<br>2 | better button | $500 | +$${betterbuttonpower} clickpower`
+    textEl.innerHTML += `<br>3 | even better button | $1250 | +$${thirdupgradepower} clickpower`
+    textEl.innerHTML += `<br>4 | ultimate button | $6500 | +$${ultimatebuttonpower} clickpower`
     textEl.innerHTML += '<br>5 | multiplying button | $17500 | click multiplier +0.75'
     textEl.innerHTML += '<br>what will you buy (press associated number): '
 }
