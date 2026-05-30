@@ -73,7 +73,7 @@ document.addEventListener('keydown', event => {
                 thirdupgradebought = true
                 alert('you bought the third upgrade')
             } else {
-                alert('unable to purchase the third upgrade')
+                alert('unable to purchase the even better button')
             }
             mode = 'clicking'
             updateDisplay()
